@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceitas?</title>
+    <!-- Importando a fonte Montserrat para ficar igualzinho -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffc8dd;
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #590d22;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            width: 100%;
+        }
+
+        .btn-sim {
+            background-color: #ffb3c1;
+            color: #590d22;
+            border: 3px solid #590d22;
+            padding: 10px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-nao {
+            background-color: #ffb3c1;
+            color: #590d22;
+            border: 3px solid #590d22;
+            padding: 6px 15px;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            position: absolute;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.05s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quer ficar comigo,Kauany?</h1>
+
+    <div class="buttons-container">
+        <button class="btn-sim" onclick="aceitou()">Sim</button>
+        <button class="btn-nao" id="btnNao" onmouseover="fugir()" ontouchstart="fugir()" onclick="negar()">Não</button>
+    </div>
+
+    <script>
+        function aceitou() {
+            alert("Meu amor\nQue bom que aceitou,Já sei onde vamos");
+        }
+
+        function fugir() {
+            const btn = document.getElementById('btnNao');
+            const maxX = window.innerWidth - btn.offsetWidth - 40;
+            const maxY = window.innerHeight - btn.offsetHeight - 40;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            btn.style.position = 'fixed';
+            btn.style.left = Math.max(20, randomX) + 'px';
+            btn.style.top = Math.max(20, randomY) + 'px';
+        }
+
+        function negar() {
+            document.getElementById('btnNao').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
